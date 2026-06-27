@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Blue Neon Login UI</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial;
+}
+
+body{
+    background:#020817;
+    color:white;
+}
+
+/* LOGIN PAGE */
+
+.login-page{
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+}
+
+.login-box{
+    width:100%;
+    max-width:400px;
+
+    background:#071220;
+
+    border:2px solid #00bfff;
+
+    border-radius:25px;
+
+    padding:25px;
+
+    box-shadow:
+    0 0 20px #00bfff,
+    0 0 45px #003cff;
+}
+
+/* FOTO */
+
+.profile{
+    width:110px;
+    height:110px;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    margin:auto;
+
+    border:3px solid #00bfff;
+
+    box-shadow:
+    0 0 20px #00bfff;
+}
+
+.profile img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* TITLE */
+
+.login-title{
+    text-align:center;
+
+    margin-top:18px;
+
+    font-size:28px;
+
+    color:#7ee7ff;
+
+    text-shadow:
+    0 0 10px #00bfff;
+}
+
+/* INPUT */
+
+.input{
+    width:100%;
+
+    padding:18px;
+
+    margin-top:20px;
+
+    border:none;
+    outline:none;
+
+    border-radius:18px;
+
+    background:#081120;
+
+    color:white;
+
+    border:2px solid #00bfff;
+
+    box-shadow:
+    0 0 10px rgba(0,191,255,0.4);
+}
+
+/* LOGIN BUTTON */
+
+.login-btn{
+    width:100%;
+
+    padding:18px;
+
+    margin-top:20px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:linear-gradient(45deg,#006eff,#00d9ff);
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 0 20px #00bfff;
+}
+
+/* ERROR */
+
+.error{
+    margin-top:15px;
+
+    text-align:center;
+
+    color:#ff6666;
+
+    display:none;
+}
+
+/* MAIN PAGE */
+
+.main{
+    display:none;
+
+    padding:20px;
+}
+
+/* TOPBAR */
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:20px;
+}
+
+.logo{
+    font-size:24px;
+
+    color:#7ee7ff;
+
+    text-shadow:
+    0 0 10px #00bfff;
+}
+
+.icons{
+    display:flex;
+    gap:10px;
+}
+
+.icon{
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+
+    background:#081120;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border:2px solid #00bfff;
+
+    box-shadow:
+    0 0 10px #00bfff;
+}
+
+/* VIDEO */
+
+.banner{
+    width:100%;
+    height:240px;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    border:2px solid #00bfff;
+
+    box-shadow:
+    0 0 20px #00bfff,
+    0 0 45px #003cff;
+}
+
+.banner video{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+/* MENU */
+
+.menu{
+    display:flex;
+
+    gap:15px;
+
+    margin-top:25px;
+}
+
+.btn{
+    flex:1;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:20px;
+
+    background:#081120;
+
+    color:white;
+
+    border:2px solid #00bfff;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 0 10px rgba(0,191,255,0.4);
+}
+
+.active{
+    background:linear-gradient(45deg,#006eff,#00d9ff);
+
+    box-shadow:
+    0 0 20px #00bfff;
+}
+
+/* CARD */
+
+.card{
+    margin-top:30px;
+}
+
+.label{
+    margin-bottom:10px;
+
+    font-size:18px;
+
+    color:#7ee7ff;
+}
+
+/* SELECT */
+
+.select{
+    width:100%;
+
+    padding:18px;
+
+    margin-top:20px;
+
+    border:none;
+    outline:none;
+
+    border-radius:18px;
+
+    background:#081120;
+
+    color:white;
+
+    border:2px solid #00bfff;
+}
+
+/* AUDIO BUTTON */
+
+.audio-buttons{
+    display:flex;
+
+    gap:15px;
+
+    margin-top:20px;
+}
+
+.audio-btn{
+    flex:1;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:#081120;
+
+    color:white;
+
+    border:2px solid #00bfff;
+
+    cursor:pointer;
+}
+
+/* SEND */
+
+.send{
+    width:100%;
+
+    padding:22px;
+
+    margin-top:25px;
+
+    border:none;
+
+    border-radius:22px;
+
+    background:linear-gradient(45deg,#006eff,#00d9ff);
+
+    color:white;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 0 20px #00bfff;
+}
+
+/* STATUS */
+
+.status{
+    margin-top:20px;
+
+    padding:18px;
+
+    border-radius:18px;
+
+    background:#081120;
+
+    border:2px solid #00bfff;
+
+    display:none;
+}
+
+/* NAVBAR */
+
+.navbar{
+    margin-top:35px;
+
+    display:flex;
+
+    justify-content:space-around;
+
+    background:#081120;
+
+    padding:18px;
+
+    border-radius:25px;
+
+    border:2px solid #00bfff;
+
+    box-shadow:
+    0 0 15px #00bfff;
+}
+
+.nav{
+    text-align:center;
+
+    font-size:13px;
+
+    color:#ccc;
+}
+
+.active-nav{
+    color:#7ee7ff;
+}
+
+</style>
+</head>
+<body>
+
+<!-- LOGIN PAGE -->
+
+<div class="login-page" id="loginPage">
+
+    <div class="login-box">
+
+        <div class="profile">
+
+            <img src="profil.jpg">
+
+        </div>
+
+        <div class="login-title">
+            SAMUDRA PROJECT
+        </div>
+
+        <input 
+        type="text"
+        class="input"
+        id="username"
+        placeholder="Username">
+
+        <input 
+        type="password"
+        class="input"
+        id="password"
+        placeholder="Password">
+
+        <button class="login-btn" onclick="login()">
+            LOGIN
+        </button>
+
+        <div class="error" id="errorText">
+            Username atau Password salah!
+        </div>
+
+    </div>
+
+</div>
+
+<!-- MAIN PAGE -->
+
+<div class="main" id="mainPage">
+
+    <!-- AUDIO -->
+
+    <audio id="music">
+
+        <source src="music.mp3" type="audio/mp3">
+
+    </audio>
+
+    <!-- TOPBAR -->
+
+    <div class="topbar">
+
+        <div class="logo">
+            SAMUDRA
+        </div>
+
+        <div class="icons">
+
+            <div class="icon">👤</div>
+
+            <div class="icon">⚙️</div>
+
+        </div>
+
+    </div>
+
+    <!-- VIDEO -->
+
+    <div class="banner">
+
+        <video autoplay muted loop playsinline>
+
+            <source src="video.mp4" type="video/mp4">
+
+        </video>
+
+    </div>
+
+    <!-- MENU -->
+
+    <div class="menu">
+
+        <button class="btn active" id="nomorBtn">
+            BUG NOMOR
+        </button>
+
+        <button class="btn" id="groupBtn">
+            BUG GROUP
+        </button>
+
+    </div>
+
+    <!-- CARD -->
+
+    <div class="card">
+
+        <div class="label" id="targetLabel">
+            NOMOR TARGET
+        </div>
+
+        <input 
+        type="text"
+        class="input"
+        id="targetInput"
+        placeholder="+62xxxxxxxxxx">
+
+        <select class="select">
+
+            <option>Crash</option>
+            <option>ForeClose Wa</option>
+            <option>Delay Hard</option>
+            <option>Crash hard</option>
+
+        </select>
+
+        <!-- AUDIO -->
+
+        <div class="audio-buttons">
+
+            <button class="audio-btn" onclick="playMusic()">
+                ▶ PLAY
+            </button>
+
+            <button class="audio-btn" onclick="pauseMusic()">
+                ⏸ PAUSE
+            </button>
+
+        </div>
+
+        <!-- SEND -->
+
+        <button class="send" onclick="sendStatus()">
+            SEND BUG
+        </button>
+
+        <div class="status" id="statusBox"></div>
+
+    </div>
+
+    <!-- NAVBAR -->
+
+    <div class="navbar">
+
+        <div class="nav active-nav">
+            🏠<br>Home
+        </div>
+
+        <div class="nav">
+            💬<br>Chat
+        </div>
+
+        <div class="nav">
+            🔔<br>Info
+        </div>
+
+        <div class="nav">
+            ⚙️<br>Tools
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+/* LOGIN SYSTEM */
+
+function login(){
+
+    const user = document.getElementById("username").value;
+
+    const pass = document.getElementById("password").value;
+
+    if(user === "admin" && pass === "12345"){
+
+        document.getElementById("loginPage").style.display = "none";
+
+        document.getElementById("mainPage").style.display = "block";
+
+    }else{
+
+        document.getElementById("errorText").style.display = "block";
+    }
+}
+
+/* MENU BUTTON */
+
+let mode = "nomor";
+
+const nomorBtn = document.getElementById("nomorBtn");
+
+const groupBtn = document.getElementById("groupBtn");
+
+const targetLabel = document.getElementById("targetLabel");
+
+const targetInput = document.getElementById("targetInput");
+
+nomorBtn.onclick = () => {
+
+    mode = "nomor";
+
+    nomorBtn.classList.add("active");
+
+    groupBtn.classList.remove("active");
+
+    targetLabel.innerHTML = "NOMOR TARGET";
+
+    targetInput.placeholder = "+62xxxxxxxxxx";
+}
+
+groupBtn.onclick = () => {
+
+    mode = "group";
+
+    groupBtn.classList.add("active");
+
+    nomorBtn.classList.remove("active");
+
+    targetLabel.innerHTML = "LINK GROUP";
+
+    targetInput.placeholder = "https://chat.whatsapp.com/...";
+}
+
+/* AUDIO */
+
+const music = document.getElementById("music");
+
+function playMusic(){
+
+    music.play();
+}
+
+function pauseMusic(){
+
+    music.pause();
+}
+
+/* SEND */
+
+function sendStatus(){
+
+    const value = document.getElementById("targetInput").value;
+
+    const status = document.getElementById("statusBox");
+
+    if(value === ""){
+
+        alert("Masukan target!");
+
+        return;
+    }
+
+    status.style.display = "block";
+
+    status.innerHTML = `
+    <b>Status:</b> Success ✔<br><br>
+    <b>Target:</b> ${value}<br>
+    <b>Mode:</b> ${mode}
+    `;
+}
+
+</script>
+
+</body>
+</html>
